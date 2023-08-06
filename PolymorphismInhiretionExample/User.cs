@@ -9,11 +9,11 @@ namespace PolymorphismInhiretionExample
     public class User : Emploee
     {
         public string Login { get; private set; }
-        
+
         protected string password;
 
         public User(int id, string login, string password)
-            :base(id)
+            : base(id)
         {
             Login = login;
             this.password = password;

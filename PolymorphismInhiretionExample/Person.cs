@@ -11,10 +11,10 @@
 
         public Person(int id)
         {
-           Id = id; 
+            Id = id;
         }
 
-        public virtual string GetPersonalData()=>
+        public virtual string GetPersonalData() =>
             @$"First Name - {FirstName}
 Last Name - {LastName}
 Email - {Email}

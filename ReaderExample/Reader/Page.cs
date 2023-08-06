@@ -1,11 +1,11 @@
 ﻿namespace ReaderExample.Reader
 {
-    class Page
+    internal class Page
     {
         public Page(uint number, string content, byte[] image = null)
         {
-            Number = number; 
-            Content = content; 
+            Number = number;
+            Content = content;
             Image = image;
         }
 

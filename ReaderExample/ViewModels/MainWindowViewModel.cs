@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace ReaderExample.ViewModels
 {
-    class MainWindowViewModel : ViewModelBase
+    internal class MainWindowViewModel : ViewModelBase
     {
         public IAsyncCommand PrivousPageCommand { get; set; }
         public IAsyncCommand NextPageCommand { get; set; }
@@ -17,40 +17,40 @@ namespace ReaderExample.ViewModels
             PageNumber = Book.CurrentPage.Number;
 
             PrivousPageCommand = new AsyncCommand(PriviusPageCommandExecute, CanPriviusPageCommandExecute);
-            NextPageCommand = new AsyncCommand(NextPageCommandExecute, CanNextPageCommandExecute); 
+            NextPageCommand = new AsyncCommand(NextPageCommandExecute, CanNextPageCommandExecute);
         }
 
         private Book book;
         private string text;
         private uint pageNumber;
 
-        public Book Book 
+        public Book Book
         {
             get => book;
-            set 
+            set
             {
                 book = value;
                 RaisePropertyChanged(nameof(Book));
             }
         }
 
-        public string Text 
+        public string Text
         {
             get => text;
             set
             {
-                text = value;   
+                text = value;
                 RaisePropertyChanged(nameof(Text));
             }
         }
 
-        public uint PageNumber 
+        public uint PageNumber
         {
             get => pageNumber;
             set
             {
                 pageNumber = value;
-                RaisePropertyChanged(nameof(PageNumber));   
+                RaisePropertyChanged(nameof(PageNumber));
             }
         }
 

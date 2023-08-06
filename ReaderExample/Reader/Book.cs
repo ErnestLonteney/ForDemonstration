@@ -1,43 +1,43 @@
 ﻿namespace ReaderExample.Reader
 {
-    class Book
-    {      
+    internal class Book
+    {
         public Book(
-            string title, 
-            string author, 
-            ushort countOfPages, 
-            string[] text, 
+            string title,
+            string author,
+            ushort countOfPages,
+            string[] text,
             string imagePath = null)
         {
             Title = title;
             Author = author;
             pages = new Page[countOfPages];
-            CountOfPages = countOfPages;   
+            CountOfPages = countOfPages;
             Image = imagePath;
             Fill(text);
-        }        
+        }
 
         public uint CountOfPages { get; }
-        public string Title  { get; }
+        public string Title { get; }
         public string Author { get; }
-        public Page CurrentPage { get; private set; }      
+        public Page CurrentPage { get; private set; }
         public string Image { get; set; }
 
         private readonly Page[] pages;
 
         public void Open()
         {
-           CurrentPage = pages[0];
+            CurrentPage = pages[0];
         }
 
         public Page GoToNextPage()
         {
             if (CurrentPage == null)
-                CurrentPage = pages[0]; 
+                CurrentPage = pages[0];
 
             if (CurrentPage.Number != pages.Length && pages[CurrentPage.Number] != null)
                 CurrentPage = pages[CurrentPage.Number];
-           
+
             return CurrentPage;
         }
 

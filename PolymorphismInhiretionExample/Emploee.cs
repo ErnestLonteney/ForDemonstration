@@ -2,7 +2,7 @@
 {
     public class Emploee : Person
     {
-        public Emploee(int id) 
+        public Emploee(int id)
             : base(id)
         {
         }

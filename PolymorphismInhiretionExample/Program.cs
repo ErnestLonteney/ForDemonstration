@@ -7,7 +7,7 @@ namespace PolymorphismInhiretionExample
         static void SendMail(Person person)
         {
             if (person.Email != null)
-            Console.WriteLine($"Send to {person.Email} Hello {person.LastName} {person.FirstName}!");
+                Console.WriteLine($"Send to {person.Email} Hello {person.LastName} {person.FirstName}!");
             if (person is Emploee emploee)
                 Console.WriteLine($"Your salary is {emploee.Salary}");
             else
@@ -31,7 +31,7 @@ namespace PolymorphismInhiretionExample
                     Address = "Sault Lake City",
                     Email = "person2@mail.com",
                     Salary = 3000,
-                    
+
                 },
                 new Administrator(3, "admin", "12345")
                 {
@@ -57,13 +57,13 @@ namespace PolymorphismInhiretionExample
 
             for (int i = 0; i < people.Length; i++)
             {
-               string data = people[i].GetPersonalData();
-               Console.WriteLine(data);
+                string data = people[i].GetPersonalData();
+                Console.WriteLine(data);
                 SendMail(people[i]);
-               Console.WriteLine(new String('-', 50));
+                Console.WriteLine(new String('-', 50));
             }
 
-            Administrator globalUser = (Administrator)people[2]; 
+            Administrator globalUser = (Administrator)people[2];
             globalUser.FixIssue();
 
             Person adminDataLikePerson = globalUser as Person;

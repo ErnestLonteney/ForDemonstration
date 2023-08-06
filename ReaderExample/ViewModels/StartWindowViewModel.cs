@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ReaderExample.ViewModels
 {
-    class StartWindowViewModel : ViewModelBase
+    internal class StartWindowViewModel : ViewModelBase
     {
         public IAsyncCommand ReadBookCommand { get; set; }
 
@@ -157,16 +157,16 @@ saying."
 
         public StartWindowViewModel(StartWindow startWindow)
         {
-            this.startWindow = startWindow; 
+            this.startWindow = startWindow;
             var lordOfTheRingBook = new Book("Lord of the Rings", "J. R. R. Tolkien", 233, textOfLordOfTheRings, "71jLBXtWJWL_.jpg");
             var harryPotterBook = new Book("Harry Potter and philosopher`s stone", "J.K. Rolling", 304, textOfHarryPoter, "9780747574477-fr.jpg");
 
-            Books = new ObservableCollection<Book>(new Book[] { lordOfTheRingBook, harryPotterBook });         
+            Books = new ObservableCollection<Book>(new Book[] { lordOfTheRingBook, harryPotterBook });
             ReadBookCommand = new AsyncCommand(ReadBookCommandExecute, CanReadBookCommandExecute);
-        }              
+        }
 
-        public ObservableCollection<Book> Books 
-        { 
+        public ObservableCollection<Book> Books
+        {
             get => books;
             set
             {
@@ -174,9 +174,9 @@ saying."
                 RaisePropertyChanged(nameof(Books));
             }
         }
-        public string Image 
+        public string Image
         {
-            get => image; 
+            get => image;
             set
             {
                 image = value;

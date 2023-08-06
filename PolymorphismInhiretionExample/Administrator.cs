@@ -19,7 +19,7 @@ namespace PolymorphismInhiretionExample
         }
 
         public override string GetPersonalData() => $"Login - {Login} Name - {FirstName}";
-        
+
         public void FixIssue()
         {
             // Some fixing
