@@ -1,72 +1,94 @@
 ﻿namespace PhoneExample
 {
     public abstract class Phone
-    {
-        protected string imay;
-        protected readonly uint countOfContacts;
-        protected string[] contacts;
-
-        public uint SizeOfMemory { get; private set; } = 12;
+    {      
+        public int SizeOfMemory { get; private set; } = 12;
+        public ContactBook ContactBook { get; }
         public string Model { get; }
         public string Brand { get; }
-        public string Color { get; } 
+        public string Color { get; }
 
+        protected string imay;
+        protected readonly int countOfContacts;
+        protected DateTime startCall;
+        protected DateTime endCall;
+        protected CallInfoRecord[] historyOfCalls;
+        protected int index = 0;
+
+        private const int CountOfRecords = 250;
+        
         public Phone(string brand, string model, string color)
         {
             Initate();
             countOfContacts = SizeOfMemory * 4;
-            contacts = new string[countOfContacts];   
+            ContactBook = new ContactBook(countOfContacts);
+            historyOfCalls = new CallInfoRecord[CountOfRecords];
             Brand = brand;
             Color = color;  
             Model = model;  
         }
 
-        public virtual void MakeACall(string contact)
+        public virtual void MakeACall(Guid contactId)
         {
-            int index = GetContactIndex(contact);
-            if (index != -1)
-                Console.WriteLine($"Calling to {contacts[index]}");
+            Contact foundContact = ContactBook[contactId];
+            if (foundContact != null)
+            {
+                Console.WriteLine($"Calling to {foundContact.LastName} {foundContact.FirsName}");
+                startCall = DateTime.Now;
+            }
             else
                 Console.WriteLine("Unknown contact");
         }
 
-        public void AddContact(string name)
+        public virtual void EndACall(Guid contactId)
         {
-            int contactIndex = GetEmptySpace();
-
-            if (contactIndex != -1)
-               contacts[contactIndex] = name;  
+            endCall = DateTime.Now;
+            AddRecordAboutCall(new CallInfoRecord
+            {
+                AnotherContact = ContactBook[contactId],
+                IsComming = true,
+                Duration = endCall - startCall, 
+            });
         }
 
-        public void IncreaseMemory(uint newValue)
+        private void AddRecordAboutCall(CallInfoRecord record)
+        {
+            void Clear()
+            {
+                for (int i = 0; i < historyOfCalls.Length; i++)
+                    historyOfCalls[i] = null;
+            }
+
+                      
+            if (index == 200)
+            {
+                Clear();
+                index = 0;
+            }
+
+            historyOfCalls[index++] = record;
+        }
+
+        public void IncreaseMemory(int newValue)
         {
             SizeOfMemory = newValue;    
         }
 
-        private int GetEmptySpace()
-        {
-            for (int i = 0; i < contacts.Length; i++)
-            {
-                if (contacts[i] == null)
-                    return i;   
-            }
-
-            return -1;
-        }
-
-        private int GetContactIndex(string contact)
-        {
-            for (int i = 0; i < contacts.Length; i++)
-            {
-                if (contacts[i].ToUpper() == contact.Trim().ToUpper())
-                {
-                    return i;   
-                }
-            }
-
-            return -1;
-        }
-
         public abstract void Initate();
+
+        public void GetHystoryOfCalls()
+        {
+            string result = String.Empty;
+
+            for (int i = 0; i < historyOfCalls.Length; i++)
+            {
+                if (historyOfCalls[i] == null)
+                    continue;
+
+                result += $"{historyOfCalls[i].DateTime} - {historyOfCalls[i].AnotherContact.FirsName} {historyOfCalls[i].AnotherContact.LastName}\n";
+            }
+
+            Console.WriteLine(result);  
+        }
     }
 }
