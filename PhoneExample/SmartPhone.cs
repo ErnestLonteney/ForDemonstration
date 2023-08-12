@@ -1,6 +1,6 @@
 ﻿namespace PhoneExample
 {
-    class SmartPhone : Phone, IIdentifier
+    class SmartPhone : Phone, IIdentifier, IDisposable
     {
         private readonly Guid clientId;
         public string Processor { get; }
@@ -14,9 +14,9 @@
             clientId = Guid.NewGuid();  
         }
 
-        public override void MakeACall(string contact)
+        public override void MakeACall(Guid contactId)
         {
-            base.MakeACall(contact);
+            base.MakeACall(contactId);
             Console.WriteLine("with video");
         }
 
@@ -26,7 +26,7 @@
             Console.WriteLine($"Assigned imay {imay}");
         }
 
-        private string GenarateImay()
+        private static string GenarateImay()
         {
             string imay = string.Empty;
             var randomizer = new Random();
@@ -40,6 +40,10 @@
             return imay;
         }
 
-
+        public void Dispose()
+        {
+            Console.WriteLine("Close db connection");
+            Console.WriteLine("Remove removed data");
+        }
     }
 }

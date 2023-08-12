@@ -9,13 +9,28 @@
 
             var myPhones = new Phone[] { nokia, samsung };
 
-            nokia.AddContact("Volodymyr");
-            nokia.AddContact("Work");
-            nokia.MakeACall("Work");
+            Guid volodymyrId = nokia.ContactBook.AddContact(new Contact("Volodymyr", "+390832392030"));
+            Guid workId = nokia.ContactBook.AddContact(new Contact("Work", "+34454555543"));
+            
+            nokia.MakeACall(volodymyrId);
+            Task.Delay(3000);
+            nokia.EndACall(volodymyrId);
 
-            samsung.AddContact("Insurance company");
-            samsung.AddContact("Jane");
-            samsung.MakeACall("jane");
+            nokia.GetHystoryOfCalls();
+
+            var insuranceContact = new Contact("Insurance company", "+3343434344");
+            samsung.ContactBook.AddContact(insuranceContact);
+            Guid janeId = samsung.ContactBook.AddContact(new Contact("Jane", "+34545555"));
+            
+            samsung.MakeACall(janeId);
+            Task.Delay(2000);
+            samsung.EndACall(janeId);
+           
+            samsung.MakeACall(insuranceContact.Id);
+            Task.Delay(4000);
+            samsung.EndACall(insuranceContact.Id);
+
+            samsung.GetHystoryOfCalls();
 
             for (int i = 0; i < myPhones.Length; i++)
             {
