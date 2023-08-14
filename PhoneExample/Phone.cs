@@ -58,8 +58,7 @@
                 for (int i = 0; i < historyOfCalls.Length; i++)
                     historyOfCalls[i] = null;
             }
-
-                      
+                     
             if (index == 200)
             {
                 Clear();
@@ -85,7 +84,7 @@
                 if (historyOfCalls[i] == null)
                     continue;
 
-                result += $"{historyOfCalls[i].DateTime} - {historyOfCalls[i].AnotherContact.FirsName} {historyOfCalls[i].AnotherContact.LastName}\n";
+                result += $"{historyOfCalls[i].DateTime} - {historyOfCalls[i].AnotherContact.FirsName} {historyOfCalls[i].AnotherContact.LastName} Duration of call {historyOfCalls[i].Duration}\n";
             }
 
             Console.WriteLine(result);  

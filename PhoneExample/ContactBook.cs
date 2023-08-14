@@ -4,7 +4,7 @@
     {
 
         private const string ContactsDoesNotExists = "Contact does not exist in the book";
-        private Contact[] contacts;
+        private readonly Contact[] contacts;
 
         public ContactBook(int size)
         {
@@ -58,7 +58,7 @@
                 {
                     contacts[i] = null;
                     Count--;
-                    errorMessage = string.Empty;
+                    errorMessage = String.Empty;
 
                     return;
                 }

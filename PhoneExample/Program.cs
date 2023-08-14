@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void Main()
+        async static Task Main()
         {
             var nokia = new ButtonPhone("Nokia", "5900", "black");
             var samsung = new SmartPhone("Intel Core m345", "Samsung", "A72", "Silver");
@@ -13,7 +13,7 @@
             Guid workId = nokia.ContactBook.AddContact(new Contact("Work", "+34454555543"));
             
             nokia.MakeACall(volodymyrId);
-            Task.Delay(3000);
+            await Task.Delay(3000);
             nokia.EndACall(volodymyrId);
 
             nokia.GetHystoryOfCalls();
@@ -23,11 +23,11 @@
             Guid janeId = samsung.ContactBook.AddContact(new Contact("Jane", "+34545555"));
             
             samsung.MakeACall(janeId);
-            Task.Delay(2000);
+            await Task.Delay(2000);
             samsung.EndACall(janeId);
            
             samsung.MakeACall(insuranceContact.Id);
-            Task.Delay(4000);
+            await Task.Delay(4000);
             samsung.EndACall(insuranceContact.Id);
 
             samsung.GetHystoryOfCalls();
