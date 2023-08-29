@@ -13,7 +13,7 @@
         {
             if (operand2 == 0)
             {
-                DivideByZero.Invoke(null, null);
+                DivideByZero.Invoke(null, EventArgs.Empty);
                 return null;                   
             }
 
