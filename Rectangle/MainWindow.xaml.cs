@@ -1,8 +1,10 @@
 ﻿using System;
 using System.IO;
+using System.IO.Enumeration;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Rectangle
@@ -12,6 +14,7 @@ namespace Rectangle
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string FileName = "Position.xml"; 
         private Point position;
         private readonly XmlSerializer serializer;
         public MainWindow()
@@ -47,20 +50,21 @@ namespace Rectangle
 
         private void mainForm_Closed(object sender, EventArgs e)
         {
-            var stream = File.Create("Position.xml");
+            var stream = File.Create(FileName);
             serializer.Serialize(stream, position);
         }
 
         private Point GetCurrentPosition()
         {
-            if (File.Exists("Position.xml"))
+            if (File.Exists(FileName))
             {
                 try
                 {
-                    var stream = File.OpenRead("Position.xml");
-                    var serializedObj = (Point)serializer.Deserialize(stream);
-
-                    return serializedObj;
+                    var stream = File.OpenRead(FileName);
+                    if (serializer.CanDeserialize(new XmlTextReader(stream)))
+                    {
+                        return (Point)serializer.Deserialize(stream);
+                    }                   
                 }
                 catch { }
             }          
