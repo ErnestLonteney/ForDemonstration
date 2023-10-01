@@ -14,9 +14,10 @@ namespace Rectangle
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string FileName = "Position.xml"; 
-        private Point position;
+        private const string FileName = "Position.xml";
         private readonly XmlSerializer serializer;
+        private Point position;
+      
         public MainWindow()
         {
             InitializeComponent();
@@ -52,21 +53,33 @@ namespace Rectangle
         {
             var stream = File.Create(FileName);
             serializer.Serialize(stream, position);
+
+            stream.Close(); 
         }
 
         private Point GetCurrentPosition()
         {
             if (File.Exists(FileName))
             {
+                XmlReader xmlReader = null;
+
                 try
                 {
                     var stream = File.OpenRead(FileName);
-                    if (serializer.CanDeserialize(new XmlTextReader(stream)))
-                    {
-                        return (Point)serializer.Deserialize(stream);
-                    }                   
+                    xmlReader = new XmlTextReader(stream);
+                    if (serializer.CanDeserialize(xmlReader))
+                    {                       
+                        return (Point)serializer.Deserialize(xmlReader);
+                    }
                 }
-                catch { }
+                catch 
+                {
+                    MessageBox.Show("Desearelization went wrong");
+                }
+                finally 
+                {
+                    xmlReader?.Close();
+                }
             }          
              
             return new Point(Canvas.GetLeft(myRec), Canvas.GetTop(myRec));
