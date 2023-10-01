@@ -74,7 +74,7 @@ namespace Rectangle
                 }
                 catch 
                 {
-                    MessageBox.Show("Desearelization went wrong");
+                    MessageBox.Show("Desensitization went wrong");
                 }
                 finally 
                 {
