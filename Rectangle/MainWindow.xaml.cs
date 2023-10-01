@@ -18,9 +18,7 @@ namespace Rectangle
         {
             InitializeComponent();
             serializer = new XmlSerializer(typeof(Point));
-            mainCanvas.Focus();
-            position = GetCurrentPosition();
-            SetRectanglePosition(position);            
+            mainCanvas.Focus();                 
         }
 
         private void Canvas_KeyDown(object sender, KeyEventArgs e)
@@ -44,7 +42,7 @@ namespace Rectangle
             position.X = Canvas.GetLeft(myRec);
             position.Y = Canvas.GetTop(myRec);
 
-            mainForm.Title = $"{position.X} {position.Y}";
+            SetTitle();
         }
 
         private void mainForm_Closed(object sender, EventArgs e)
@@ -57,19 +55,33 @@ namespace Rectangle
         {
             if (File.Exists("Position.xml"))
             {
-                var stream = File.OpenRead("Position.xml");
-                var serializedObj = (Point)serializer.Deserialize(stream);
+                try
+                {
+                    var stream = File.OpenRead("Position.xml");
+                    var serializedObj = (Point)serializer.Deserialize(stream);
 
-                return serializedObj;
+                    return serializedObj;
+                }
+                catch { }
             }          
              
             return new Point(Canvas.GetLeft(myRec), Canvas.GetTop(myRec));
         }
 
+        private void SetTitle() => mainForm.Title = $"{position.X} {position.Y}";
+
         private void SetRectanglePosition(Point position)
         {
             Canvas.SetTop(myRec, position.Y);
             Canvas.SetLeft(myRec, position.X);
+            
+            SetTitle();
+        }
+
+        private void mainForm_Loaded(object sender, RoutedEventArgs e)
+        {
+            position = GetCurrentPosition();
+            SetRectanglePosition(position);
         }
     }
 }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         Name="mainForm"
-        WindowStartupLocation="CenterScreen" Closed="mainForm_Closed">
+        WindowStartupLocation="CenterScreen" Closed="mainForm_Closed" Loaded="mainForm_Loaded">
     <Canvas Name="mainCanvas" KeyDown="Canvas_KeyDown" KeyUp="mainCanvas_KeyUp" Focusable="True">
         <Rectangle Name="myRec" Width="50" Height="50" Canvas.Left="400" Canvas.Top="200" >
             <Rectangle.Fill>
