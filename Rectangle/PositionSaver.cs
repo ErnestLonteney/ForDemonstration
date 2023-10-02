@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,9 +30,10 @@ namespace Rectangle
                 stream = File.Create(FileName);
                 serializer.Serialize(stream, position);
             }
-            catch
-            {
-            }
+            catch (Exception ex)
+                {
+                    throw ex;                 
+                }
             finally
             {
                 stream?.Close();
@@ -53,9 +55,9 @@ namespace Rectangle
                         return (Point)serializer.Deserialize(xmlReader);
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Desensitization went wrong");
+                    throw ex;                 
                 }
                 finally
                 {
