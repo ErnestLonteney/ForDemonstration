@@ -11,15 +11,12 @@ namespace Rectangle
     public partial class MainWindow : Window
     {   
         private Point currentPosition;
-      
         public MainWindow()
         {
             InitializeComponent();
             mainCanvas.Focus();                 
         }          
-
         private void SetTitle() => mainForm.Title = $"{currentPosition.X} {currentPosition.Y}";
-
         private void SetRectanglePosition()
         {
             Canvas.SetTop(myRec, currentPosition.Y);
@@ -50,7 +47,15 @@ namespace Rectangle
 
         private void mainForm_Loaded(object sender, RoutedEventArgs e)
         {
-            currentPosition = PositionSaver.GetPosition();
+            try
+            {
+                currentPosition = PositionSaver.GetPosition();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             SetRectanglePosition();
         }
 
@@ -64,7 +69,14 @@ namespace Rectangle
 
         private void mainForm_Closed(object sender, EventArgs e)
         {
-            PositionSaver.SavePosition(currentPosition);
+            try
+            {
+                PositionSaver.SavePosition(currentPosition);
+            }
+            catch (Exception ex)  
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }

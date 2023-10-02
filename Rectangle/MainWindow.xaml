@@ -9,7 +9,7 @@
         Name="mainForm"
         WindowStartupLocation="CenterScreen" Closed="mainForm_Closed" Loaded="mainForm_Loaded">
     <Canvas Name="mainCanvas" KeyDown="Canvas_KeyDown" KeyUp="mainCanvas_KeyUp" Focusable="True">
-        <Rectangle Name="myRec" Width="50" Height="50" Canvas.Left="400" Canvas.Top="200" >
+        <Rectangle Name="myRec" Width="50" Height="50" Canvas.Left="400" Canvas.Top="200">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
