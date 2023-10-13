@@ -31,9 +31,9 @@ namespace Rectangle
                 serializer.Serialize(stream, position);
             }
             catch (Exception ex)
-                {
-                    throw ex;                 
-                }
+            {
+                throw ex;                 
+            }
             finally
             {
                 stream?.Close();
