@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +14,7 @@ namespace TextReader
     public partial class MainWindow : Window
     {
         private CancellationTokenSource cancellationSource;
+        private bool isCanceled = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace TextReader
                     pbMain.Value = 0;
 
                     try
-                    {                    
+                    {
                         Task.Run(async () =>
                         {
                             while (!got)
@@ -46,8 +48,16 @@ namespace TextReader
                         },
                         cancellationSource.Token);
 
-                        string text = await File.ReadAllTextAsync(dialog.FileName, cancellationSource.Token);
-                        tbMain.Text = text;                                      
+                        using StreamReader reader = new (dialog.FileName);
+
+                        char[] buffer = new char[1024];
+
+                        while ((await reader.ReadAsync(buffer, cancellationSource.Token)) > 0 && !isCanceled) 
+                        {
+                            if (buffer.Any())
+                              tbMain.AppendText(new String(buffer));
+                            await Task.Delay(100);
+                        }           
                     }
                     catch (OperationCanceledException)
                     {
@@ -65,17 +75,19 @@ namespace TextReader
 
         private void Cancel()
         {
-            cancellationSource?.Cancel();
-            cancellationSource?.Dispose();
-            cancellationSource = new CancellationTokenSource();
-            tbFileName.Clear();
+            if (!isCanceled)
+            {
+                cancellationSource?.Cancel();
+                cancellationSource = new CancellationTokenSource();
+                tbFileName.Clear();
+                isCanceled = true;
+                MessageBox.Show("Reading was canceled");
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            cancellationSource?.Cancel();
-            cancellationSource?.Dispose();
-            cancellationSource = new CancellationTokenSource();
+            Cancel();
         }
     }
 }
