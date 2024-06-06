@@ -29,6 +29,7 @@ namespace TextReader
             {
                 if (dialog.FileName != null)
                 {
+                    isCanceled = false;
                     tbMain.Clear();
                     tbFileName.Text = dialog.FileName;
 
@@ -43,7 +44,7 @@ namespace TextReader
                             while (!got)
                             {
                                 await Task.Delay(1000);
-                                Dispatcher.Invoke(() => pbMain.Value += 10);
+                                await Dispatcher.InvokeAsync(() => pbMain.Value += 1);
                             }
                         },
                         cancellationSource.Token);
@@ -54,8 +55,9 @@ namespace TextReader
 
                         while ((await reader.ReadAsync(buffer, cancellationSource.Token)) > 0 && !isCanceled) 
                         {
+                          //  cancellationSource.Token.ThrowIfCancellationRequested();    
                             if (buffer.Any())
-                              tbMain.AppendText(new String(buffer));
+                             tbMain.AppendText(new String(buffer));
                             await Task.Delay(100);
                         }           
                     }
