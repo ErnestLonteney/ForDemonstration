@@ -17,6 +17,7 @@ namespace ServiceOrientedArchetecture
             builder.Services.AddScoped<IProductService, ProductService>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             string conectionString = "Server=";
             builder.Services.AddDbContext<MarketContext>(options => options.UseSqlServer(conectionString));
 

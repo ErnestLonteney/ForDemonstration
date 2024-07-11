@@ -1,4 +1,6 @@
-﻿namespace DataAccess.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DataAccess.Entities
 {
     public class Brand
     {
@@ -6,6 +8,6 @@
         public string Name { get; set; } = string.Empty; 
         public string? Address { get; set; }
 
-        public ICollection<Brand> Brands { get; set; } = new List<Brand>(); 
+        public virtual ICollection<Brand> Brands { get; set; } = new List<Brand>(); 
     }
 }
