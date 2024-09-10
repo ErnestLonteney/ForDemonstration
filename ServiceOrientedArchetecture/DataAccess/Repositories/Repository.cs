@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataAccess.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public abstract class Repository<T> where T : class 
+    public abstract class Repository<T> : IRepository<T> where T : class 
     {
         protected DbContext context;
         protected Repository(DbContext context)
@@ -15,8 +16,7 @@ namespace DataAccess.Repositories
             this.context = context;    
         }
 
-        public IEnumerable<T> GetAll() =>
-            context.Set<T>().ToList();
+        public IEnumerable<T> GetAll() => context.Set<T>().ToList();
 
         public T GetById<IdType>(IdType id) => context.Set<T>().Find(id);
     }

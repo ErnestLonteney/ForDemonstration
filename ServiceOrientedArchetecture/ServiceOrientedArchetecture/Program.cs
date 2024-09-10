@@ -1,5 +1,9 @@
 using DataAccess;
+using DataAccess.Repositories;
+using DataAccess.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Services;
+using Services.Interfaces;
 
 namespace ServiceOrientedArchetecture
 {
@@ -9,8 +13,11 @@ namespace ServiceOrientedArchetecture
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IProductService, ProductService>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             string conectionString = "Server=";
             builder.Services.AddDbContext<MarketContext>(options => options.UseSqlServer(conectionString));
 

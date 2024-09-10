@@ -25,6 +25,8 @@ namespace ServiceOrientedArchetecture.Controllers
             try
             {
                 var products = productService.GetProductsThatHavePrices();
+
+
                 return View(products);
             }
             catch (Exception ex)
