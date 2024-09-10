@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Xml;
 using System.Xml.Serialization;
@@ -23,16 +18,16 @@ namespace Rectangle
 
         public static void SavePosition(Point position)
         {
-            FileStream stream = null;
+            FileStream? stream = null;
 
             try
             {
                 stream = File.Create(FileName);
                 serializer.Serialize(stream, position);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;                 
+                throw;                 
             }
             finally
             {
@@ -44,7 +39,7 @@ namespace Rectangle
         {
             if (File.Exists(FileName))
             {
-                XmlReader xmlReader = null;
+                XmlReader? xmlReader = null;
 
                 try
                 {
@@ -55,9 +50,9 @@ namespace Rectangle
                         return (Point)serializer.Deserialize(xmlReader);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;                 
+                    throw;
                 }
                 finally
                 {
