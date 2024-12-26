@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
+﻿
 namespace PolymorphismInhiretionExample
 {
     internal class Program
@@ -60,7 +59,7 @@ namespace PolymorphismInhiretionExample
                 string data = people[i].GetPersonalData();
                 Console.WriteLine(data);
                 SendMail(people[i]);
-                Console.WriteLine(new String('-', 50));
+                Console.WriteLine(new string('-', 50));
             }
 
             Administrator globalUser = (Administrator)people[2];

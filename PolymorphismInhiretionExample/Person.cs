@@ -16,9 +16,9 @@
 
         public virtual string GetPersonalData() =>
             @$"First Name - {FirstName}
-Last Name - {LastName}
-Email - {Email}
-Phone - {Phone}
-Address - {Address}";
+               Last Name - {LastName}
+               Email - {Email}
+               Phone - {Phone}
+               Address - {Address}";
     }
 }
