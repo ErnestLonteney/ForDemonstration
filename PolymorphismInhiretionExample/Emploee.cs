@@ -12,8 +12,7 @@
 
         public override string GetPersonalData()
         {
-            return base.GetPersonalData() + '\n' + $@"Salary - {Salary}
-Positions {Position}";
+            return base.GetPersonalData() + '\n' + $@"Salary - {Salary} Positions {Position}";
         }
     }
 }
