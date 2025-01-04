@@ -3,7 +3,6 @@
     abstract class Car
     {
         protected CarPart[] parts;
-        protected double volumeEngine;
         protected int currentIndex = 0;
 
         protected Car(string model, string brand)
@@ -18,7 +17,7 @@
 
         public string Model { get; set; }
         public string Brand { get; set; }
-        public abstract double VolumeEngine { get; }
+        public abstract double VolumeEngine { get; protected set; }
         
         public abstract void Start();
         public virtual void Stop() => CurrentSpeed = 0;

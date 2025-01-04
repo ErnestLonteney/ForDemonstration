@@ -5,20 +5,22 @@
         public SportCar(string model, string brand, double engineVolume) 
             : base(model, brand)
         {
-            base.volumeEngine = engineVolume;  
+            VolumeEngine = engineVolume;  
         }
 
         public override CarPart this[string name]
         {
             get 
             {
-                for (int i = 0; i< currentIndex; i++)
+                for (int i = 0; i < currentIndex; i++)
                     if (parts[i].Name == name)
                         return parts[i];
 
                 return null;
             }
         }
+
+        public override double VolumeEngine { get; protected set; }
 
         private void PassDistance(double distance)
         {
@@ -28,9 +30,7 @@
             {
                 parktronic.Distance = distance;
             }
-        }
-
-        public override double VolumeEngine => volumeEngine;        
+        }   
 
         public override void AddRadioToCar()
         {
