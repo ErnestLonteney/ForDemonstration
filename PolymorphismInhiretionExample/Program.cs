@@ -8,9 +8,7 @@ namespace PolymorphismInhiretionExample
             if (person.Email != null)
                 Console.WriteLine($"Send to {person.Email} Hello {person.LastName} {person.FirstName}!");
             if (person is Emploee emploee)
-                Console.WriteLine($"Your salary is {emploee.Salary}");
-            else
-                Console.WriteLine("Good day!");
+                Console.WriteLine($"Your salary is {emploee.Salary}");        
         }
 
         static void Main()

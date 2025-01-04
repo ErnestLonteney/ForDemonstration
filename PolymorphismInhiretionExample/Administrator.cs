@@ -6,6 +6,7 @@
             : base(id, login, password)
         {
         }
+
         public override void ChangePassword(string newPassword, out string error)
         {
             password = newPassword;
