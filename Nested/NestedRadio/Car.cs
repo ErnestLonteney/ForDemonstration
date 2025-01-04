@@ -21,8 +21,8 @@
         public abstract double VolumeEngine { get; }
         
         public abstract void Start();
-        public abstract void Stop();
-        public virtual void Accelerate(double step) => CurrentSpeed += step;
+        public virtual void Stop() => CurrentSpeed = 0;
+        public virtual void Accelerate(double step, double distance = Double.MaxValue) => CurrentSpeed += step;
         public virtual void Decelerate(double step) => CurrentSpeed -= step;
         public abstract void TurnLeft(double radius);
         public abstract void TurnRight(double radius);

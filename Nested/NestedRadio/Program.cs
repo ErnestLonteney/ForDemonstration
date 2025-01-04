@@ -8,9 +8,21 @@
             lamoborginy.AddRadioToCar();
             lamoborginy.AddParktronic();
 
+            Console.WriteLine($"Current speed is {lamoborginy.CurrentSpeed}");
             lamoborginy.Start();
-            lamoborginy.Accelerate(100);
-            ((SportCar.SportCarRadio)lamoborginy["Radio"]).TurnOn(); 
+            lamoborginy.Accelerate(100, 15);
+            ((SportCar.SportCarRadio)lamoborginy["Radio"]).TurnOn();
+
+            Console.WriteLine($"Current speed is {lamoborginy.CurrentSpeed}");
+
+            lamoborginy.Decelerate(40);
+            lamoborginy.Decelerate(20);
+
+            Console.WriteLine($"Current speed is {lamoborginy.CurrentSpeed}");
+
+            lamoborginy.Stop();
+
+            Console.WriteLine($"Current speed is {lamoborginy.CurrentSpeed}");
         }
     }
 }
