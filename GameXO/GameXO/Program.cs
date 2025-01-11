@@ -29,7 +29,7 @@
             }
             while (!game.IsFinished);
 
-            Console.WriteLine("You are win the game!");
+            Console.WriteLine("You have won the game!");
         }
     }
 }
