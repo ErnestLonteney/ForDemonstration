@@ -19,7 +19,7 @@ namespace FilterExample
             return result.ToArray();
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
             int[] numbers = [12, 344, 56, 76, 0, -34, 345];
 
