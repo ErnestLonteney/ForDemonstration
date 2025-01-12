@@ -39,7 +39,7 @@ namespace TextReader
 
                     try
                     {
-                        Task.Run(async () =>
+                        _ = Task.Run(async () =>
                         {
                             while (!got)
                             {
