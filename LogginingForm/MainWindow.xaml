@@ -1,0 +1,27 @@
+﻿<Window x:Class="LogginingForm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogginingForm"
+        mc:Ignorable="d"
+        Title="Authentification" Height="350" Width="500" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#FF41B2C1">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="250">
+        <Label Margin="5" Name="lbMessage">Make yous choise, please</Label>
+        <StackPanel Orientation="Horizontal">
+            <RadioButton Checked="RadioButton_Checked">
+                Registration
+            </RadioButton>
+            <RadioButton Name="rbLogin" Margin="10,0,0,0" IsChecked="True" Checked="rbLogin_Checked">
+                Log in
+            </RadioButton>
+        </StackPanel>
+        <Label>Login</Label>
+        <TextBox Height="20" Name="tbLogin"></TextBox>
+        <Label>Password</Label>
+        <PasswordBox Height="20" x:Name="pbPassword"></PasswordBox>
+        <Label Name="lbConfirm" Visibility="Collapsed">Confirm password</Label>
+        <PasswordBox Height="20" Name="pbConfirm" Visibility="Collapsed"></PasswordBox>
+        <Button FontWeight="Black"  Margin="20" Height="35" Name="btMain"  Content="Log in" Click="btMain_Click_1" Background="White" />
+    </StackPanel>
+</Window>

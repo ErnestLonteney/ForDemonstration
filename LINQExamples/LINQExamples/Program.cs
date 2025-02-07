@@ -136,8 +136,7 @@
 
             var notValidMails = emploees
                 .Select(e => e.Email)
-                .Where(email => email?
-                .Contains("@") == false);
+                .Where(email => email?.Contains("@") == false);
 
             if (notValidMails.Any())
             {
