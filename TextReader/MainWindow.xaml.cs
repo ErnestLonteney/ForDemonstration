@@ -44,7 +44,7 @@ namespace TextReader
                             while (!got)
                             {
                                 await Task.Delay(1000);
-                                await Dispatcher.InvokeAsync(() => pbMain.Value += 1);
+                                await Dispatcher.InvokeAsync(() => pbMain.Value += 10);
                             }
                         },
                         cancellationSource.Token);
@@ -68,7 +68,6 @@ namespace TextReader
                     finally
                     {
                         got = true;
-                        Cancel();
                         pbMain.Visibility = Visibility.Collapsed;
                     }
                 }
@@ -83,7 +82,7 @@ namespace TextReader
                 cancellationSource = new CancellationTokenSource();
                 tbFileName.Clear();
                 isCanceled = true;
-                MessageBox.Show("Reading was canceled");
+                MessageBox.Show("Reading has been canceled");
             }
         }
 

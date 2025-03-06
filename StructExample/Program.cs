@@ -22,7 +22,6 @@
         }
 
 
-
         static void Main()
         {
             Point point1 = new (10, -3, 0);
