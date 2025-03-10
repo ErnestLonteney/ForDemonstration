@@ -20,30 +20,37 @@
 
         static void Main()
         {
-          //тип назва значення
-            int a = 10;
-            // тип назва     значення 
             Person person1 = new Person("Jeffry", "Rihter")
             {
                 PhoneNumber = "+389055634564"
             };
-            Console.WriteLine(person1.FirstName);
+            Console.WriteLine(person1.GetInfo());
 
-            Person person2 = new Person("Bob", "Jenckins", "+38093434");
-            Console.WriteLine(person2.FirstName);
+            //Person person2 = new Person("Bob", "Jenckins", "+38093434");
+            //Console.WriteLine(person2.FirstName);
+
+            Console.WriteLine(new String('-', 50));
 
             Emploee galyna = new Emploee("Galyna", "Felinskla", 38900, "QA")
             {
+                PhoneNumber = "+344554645645",
                 Email = "galyna@gmail.com"
             };
-            galyna.GetInfo();
+            Console.WriteLine(galyna.GetInfo());
+
+            Person galynaAsPerson = galyna;
+
+            Console.WriteLine(galynaAsPerson.GetInfo());
+
+            Emploee bestEmploee = (Emploee)galynaAsPerson;
+
+            Console.WriteLine(bestEmploee.GetInfo());
 
             Customer customer = new Customer("Jane", "Watson");
 
-            Greet(person1);
-            Greet(person2);
-            Greet(galyna);
-            Greet(customer);
+            //Greet(person1);
+            //Greet(galyna);
+            //Greet(customer);
         }
     }
 }

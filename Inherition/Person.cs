@@ -33,6 +33,13 @@ namespace ConsoleApp1
             :this(firstName, lastName)
         {            
             PhoneNumber = phone;
-        }        
+        }
+
+        public virtual string GetInfo()
+        {
+            return @$"Name {FirstName} {LastName} 
+Contacts: Tel-{PhoneNumber} Email:{Email}
+";
+        }
     }
 }

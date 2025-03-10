@@ -24,12 +24,15 @@ namespace ConsoleApp1
             Position = position;     
         }
 
-        public void GetInfo()
+        public override string GetInfo()
         {
-            Console.WriteLine(FirstName);
-            Console.WriteLine(LastName);
-            Console.WriteLine(PhoneNumber);
-            Console.WriteLine(Position);
+           string info = base.GetInfo();
+
+           info += @$"Possition {Position}
+Sallary {Sallary}";
+
+            return info;
         }
+
     }
 }
