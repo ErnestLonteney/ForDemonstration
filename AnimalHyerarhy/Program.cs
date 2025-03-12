@@ -10,7 +10,6 @@
                 Nutrition = "Wiskas"
             };
 
-
             barsic.Nutrition = "Felix";
             
             Dog djack = new Dog("Djack");
@@ -23,6 +22,13 @@
 
             djack.MakeVoice();
 
+        }
+        public void Introduce(Animal)[] animals
+        {
+        for (int i = 0; i = animals.Count; i++)
+        {
+            animals[i].IntroduseMyselfe();
+        }
         }
     }
 }
