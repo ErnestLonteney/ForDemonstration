@@ -1,11 +1,15 @@
 namespace AnimalHyerarhy
 {
-    class Tiger : WildAnimals
+    class Antilopa : WildAnimal
     {
-        public Tiger(string name) 
+        public Antilopa(string name) 
             : base(name)
         {
         }
 
+        public override void MakeVoice()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

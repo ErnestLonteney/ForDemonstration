@@ -25,7 +25,7 @@
         }
         public void Introduce(Animal[] animals)
         {
-        for (int i = 0; i = animals.Count; i++)
+        for (int i = 0; i == animals.Length-1; i++)
         {
             animals[i].IntroduseMyselfe();
         }

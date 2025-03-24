@@ -7,5 +7,9 @@ namespace AnimalHyerarhy
         {
         }
 
+        public override void MakeVoice()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
