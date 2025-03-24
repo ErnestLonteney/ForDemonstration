@@ -9,7 +9,7 @@ namespace AnimalHyerarhy
 
         public override void MakeVoice()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("ARRRRRRR");
         }
     }
 }
