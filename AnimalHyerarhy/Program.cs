@@ -28,6 +28,16 @@
         for (int i = 0; i == animals.Length-1; i++)
         {
             animals[i].IntroduseMyselfe();
+        if (animals[i] is Predator)
+        {
+                    Predator predator = (Predator) animals[i];
+                    predator.Hunt();
+        }
+         else if (animals[i] is Herbivore)
+        {
+                    Herbivore herbivore = (Herbivore) animals[i];
+                    herbivore.Herd();
+        }
         }
         }
     }
