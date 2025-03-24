@@ -23,7 +23,7 @@
             djack.MakeVoice();
 
         }
-        public void Introduce(Animal)[] animals
+        public void Introduce(Animal[] animals)
         {
         for (int i = 0; i = animals.Count; i++)
         {
