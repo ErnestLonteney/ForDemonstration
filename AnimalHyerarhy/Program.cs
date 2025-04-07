@@ -21,21 +21,12 @@
            // barsic.MakeVoice();
 
            // djack.MakeVoice();
-
-            Animal[] animals = new Animal[5];
-            animals[0] = new Dog("Vasyl");
-            animals[1] = new Cat("Frosia");
-            animals[2] = new Antilopa("Lusia");
-            animals[3] = new Tiger("Petia");
-            animals[4] = new Cow("Bilka");
-
+            Animal[] animals = {new Dog("Vasyl"), new Cat("Frosia"), 
+            new Antilopa("Lusia"), new Tiger("Petia"), new Cow("Bilka")};
             for (int i = 0; i < animals.Length; i++)
             {   
                 Random random = new Random();
- 
-                int min = 1;
-                int max = 10;
-                int randomNumber = random.Next(min, max); 
+                int randomNumber = random.Next(1, 10); 
                 for (int j = 0; j < randomNumber; j++)
                     {
                         animals[i].MakeVoice();
