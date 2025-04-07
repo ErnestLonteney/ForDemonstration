@@ -14,14 +14,33 @@
             
             Dog djack = new Dog("Djack");
 
-            barsic.IntroduseMyselfe();
-            djack.IntroduseMyselfe();
+            //barsic.IntroduseMyselfe();
+            //djack.IntroduseMyselfe();
 
 
-            barsic.MakeVoice();
+           // barsic.MakeVoice();
 
-            djack.MakeVoice();
+           // djack.MakeVoice();
 
+            Animal[] animals = new Animal[5];
+            animals[0] = new Dog("Vasyl");
+            animals[1] = new Cat("Frosia");
+            animals[2] = new Antilopa("Lusia");
+            animals[3] = new Tiger("Petia");
+            animals[4] = new Cow("Bilka");
+
+            for (int i = 0; i < animals.Length; i++)
+            {   
+                Random random = new Random();
+ 
+                int min = 1;
+                int max = 10;
+                int randomNumber = random.Next(min, max); 
+                for (int j = 0; j < randomNumber; j++)
+                    {
+                        animals[i].MakeVoice();
+                    }
+            }
         }
         public void Introduce(Animal[] animals)
         {
