@@ -1,20 +1,20 @@
 namespace AnimalHyerarhy
 {
-    class Antilopa : WildAnimal
+    class Antilopa : Herbivore
     {
         public Antilopa(string name) 
             : base(name)
         {
         }
 
-        public override void Hunt()
+        public override void Herd()
         {
-            throw new NotImplementedException();
+             Console.WriteLine($"{Name} is herding");
         }
 
         public override void MakeVoice()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("IGOGO");
         }
     }
 }
