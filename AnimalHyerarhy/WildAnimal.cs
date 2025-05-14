@@ -13,7 +13,8 @@ namespace AnimalHyerarhy
         {
         }
 
-        public Animal[] Victams { get; set; }
-        public string Region { get; set; }  
+        public string Region { get; set; }
+
+        public abstract void Hunt();
     }
 }

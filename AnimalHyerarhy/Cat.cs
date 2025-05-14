@@ -13,6 +13,12 @@ namespace AnimalHyerarhy
         {
         }
 
+        public Cat()
+            :base("")
+        {
+                
+        }
+
         public override void MakeVoice() // from Animal class
         {
             Console.WriteLine("Myau-Myau");

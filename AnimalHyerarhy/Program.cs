@@ -2,6 +2,14 @@
 {
     internal class Program
     {
+        static void Introduce(params Animal[] animals)
+        {
+            for (int i = 0; i < animals.Length; i++)
+            {
+                animals[i].IntroduseMyselfe();
+            }
+        }
+
         static void Main()
         {
             Cat barsic = new Cat("Barsic")
@@ -13,15 +21,20 @@
 
             barsic.Nutrition = "Felix";
             
-            Dog djack = new Dog("Djack");
+            Dog dog1 = new Dog("Jack");
 
             barsic.IntroduseMyselfe();
-            djack.IntroduseMyselfe();
+            dog1.IntroduseMyselfe();
 
 
-            barsic.MakeVoice();
+            //barsic.MakeVoice();
 
-            djack.MakeVoice();
+            //jack.MakeVoice();
+
+            Console.WriteLine(dog1.Name);
+
+
+            Introduce();
 
         }
     }

@@ -64,8 +64,8 @@
 
             if (dick is not null)
             {
-                Console.WriteLine(dick.FirstName);
-                Console.WriteLine(dick.LastName);               
+                Console.WriteLine(dick.Phone);
+                Console.WriteLine(dick.Email);               
             }
 
 
