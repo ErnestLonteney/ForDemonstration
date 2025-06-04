@@ -1,0 +1,35 @@
+@MyAPI_HostAddress = https://localhost:55202
+
+GET {{MyAPI_HostAddress}}/api/product/list
+Accept: application/json
+###
+
+GET {{MyAPI_HostAddress}}/api/product/1
+Accept: application/json
+###
+
+POST {{MyAPI_HostAddress}}/api/product/create
+Accept: application/json
+Content-Type: application/json
+{
+    "name":"banana",
+    "category": "Fruits",
+    "articul": "943453443"
+}
+###
+
+PUT {{MyAPI_HostAddress}}/api/product/update
+Accept: application/json
+Content-Type: application/json
+{
+    "id": 3,
+    "name":"bananna",
+    "category": "Fruits",
+    "articul": "943453443"
+}
+###
+
+DELETE {{MyAPI_HostAddress}}/api/product/4
+Accept: application/json
+###
+
