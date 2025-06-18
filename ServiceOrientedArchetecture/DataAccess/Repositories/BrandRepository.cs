@@ -21,6 +21,4 @@ namespace DataAccess.Repositories
             context.Brands.Include(b => b.Brands).ToList();
         public IEnumerable<Brand> GetFullBrands() => context.Brands.ToList();
     }
-    {
-    }
 }

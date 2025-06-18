@@ -48,9 +48,9 @@
 
             Customer customer = new Customer("Jane", "Watson");
 
-            //Greet(person1);
-            //Greet(galyna);
-            //Greet(customer);
+            Greet(person1);
+            Greet(galyna);
+            Greet(customer);
         }
     }
 }

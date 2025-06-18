@@ -48,8 +48,10 @@
 
         static void Main()
         {
-            var result = "apple".Contains("plen"); 
+            var result = "apple".Contains("ple");
+            var result2 = IsExistSubsting("apple", "ple");
             Console.WriteLine(result);
+            Console.WriteLine(result2);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ServiceOrientedArchetecture.Configuration
         public MappingConfiguration()
         {
             CreateMap<ProductModel, ProductModelView>().ReverseMap();
-            CreateMap<BrandModel, BrandView>
+            CreateMap<BrandModel, BrandModelView>().ReverseMap();
         }
     }
 }

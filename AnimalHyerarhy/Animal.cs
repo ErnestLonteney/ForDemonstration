@@ -8,7 +8,7 @@
         }
 
         public string Name { get; }
-        public  int CountPaws { get; init; }
+        public int CountPaws { get; init; }
 
         public abstract void MakeVoice();
 
