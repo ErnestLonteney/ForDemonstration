@@ -4,11 +4,12 @@
     {      
         static void Main()
         {
-            Point p1 = new (10, 5)
+            Point p1 = new Point(10, 5)
             {
                 Name = "Point1"
             };
-            p1.Add();
+
+            var r = p1.Add();
 
             Point p2 = p1;
 

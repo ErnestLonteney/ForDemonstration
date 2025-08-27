@@ -1,6 +1,6 @@
 ﻿namespace StructureExample;
 
-class Point
+struct Point
 {
     public Point(double x, double y)
     {

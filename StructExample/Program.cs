@@ -44,7 +44,7 @@
 
             Console.WriteLine(point1.Z);
 
-            Point result = FindPoint(new Point(1, 1, 1), point1, point2);
+            Point result = FindPoint(in new Point(1, 1, 1), point1, point2);
 
             if (result.IsEmpty)
             {

@@ -16,9 +16,17 @@
 
             var res1 = array.Filter(n => (n % 2) == 0);
             var res2 = array.Filter(n => n > 5);
+            var res3 = array.Filter(DisplayNegative);
+
 
             DisplayArray(res1); 
             DisplayArray(res2); 
+            DisplayArray(res3); // Should display nothing
+        }
+
+        static bool DisplayNegative(int n)
+        {
+            return n < 0;
         }
     }
 }
