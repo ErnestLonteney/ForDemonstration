@@ -2,10 +2,10 @@
 {
     internal class Program 
     {
-        static void GetInfo(Animal cat)
+        static void GetInfo(Animal animal)
         {
-            Console.WriteLine(cat.Name);
-            Console.WriteLine(cat.Kind);
+            Console.WriteLine(animal.Name);
+            Console.WriteLine(animal.Kind);
         }
 
         static Cat GetAnimal()

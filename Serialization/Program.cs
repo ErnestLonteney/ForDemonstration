@@ -6,7 +6,7 @@ namespace Serialization
     {
         static void Main()
         {
-            User[] users =
+            User2[] users =
             [
                 new ("kevin97", "qwerty"),
                 new ("lily34", "12345"),
@@ -20,9 +20,9 @@ namespace Serialization
             Console.WriteLine(new string('-', 50));
 
             string json = File.ReadAllText("users.json");
-            User[] deserealizedUsers = JsonSerializer.Deserialize<User[]>(json) ?? [];
+            User2[] deserealizedUsers = JsonSerializer.Deserialize<User2[]>(json) ?? [];
 
-            foreach (User user in deserealizedUsers)
+            foreach (User2 user in deserealizedUsers)
             {
                 Console.WriteLine(user.Login);
             }
