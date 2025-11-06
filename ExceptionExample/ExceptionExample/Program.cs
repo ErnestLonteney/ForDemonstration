@@ -10,31 +10,37 @@
             Console.WriteLine("Input sum");
             string sumInput = Console.ReadLine();
 
-            double result = 0;
+            decimal result = 0;
 
             try
             {
-                double rate = double.Parse(rateInput);
-                double sum = double.Parse(sumInput);
-                if (rate == 0)
-                    throw new Exception("Divide by zero attept");
+                float rate = float.Parse(rateInput);
+                decimal sum = decimal.Parse(sumInput);
 
-                result = sum / rate;
+                result = sum / (decimal)rate;
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"Error: {ex.Message}");
+                Console.ResetColor();
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red; 
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.ResetColor();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Something wrong");
             }
+            finally // Exception or not, this block will always execute
+            {
+                Console.WriteLine("Execution completed.");
+            }
 
-
-            //finally // Exception or not, this block will always execute
-            //{
-            //    Console.WriteLine("Execution completed.");
-            //}
+           
 
             Console.WriteLine($"Sum in HRN = {result}");
         }
