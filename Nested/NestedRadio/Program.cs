@@ -11,7 +11,6 @@
             Console.WriteLine($"Current speed is {lamoborginy.CurrentSpeed}");
             lamoborginy.Start();
             lamoborginy.Accelerate(100, 15);
-            ((SportCar.SportCarRadio)lamoborginy["Radio"]).TurnOn();
 
             Console.WriteLine($"Current speed is {lamoborginy.CurrentSpeed}");
 

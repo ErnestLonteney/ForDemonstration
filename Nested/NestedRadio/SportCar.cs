@@ -2,10 +2,15 @@
 {
     class SportCar : Car
     {
+
+        private readonly SportCarRadio radio;
+
         public SportCar(string model, string brand, double engineVolume) 
             : base(model, brand)
         {
             VolumeEngine = engineVolume;  
+            radio = new SportCarRadio();
+
         }
 
         public override CarPart this[string name]
@@ -82,7 +87,7 @@
             Console.WriteLine($"Car has turned right on {radius}");
         }
 
-        public class SportCarRadio : Radio
+        private class SportCarRadio : Radio
         {
             public override void TurnOff()
             {

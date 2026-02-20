@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp26
+﻿namespace ConsoleApp26
 {
-    static class Converter
-    {
+     static class CurrencyConverter
+     {
         private static double dollarRate;
         private static double euroRate;
 
-        static Converter()
+        static CurrencyConverter()
         {
             dollarRate = GetDollarRate();
             euroRate = GetEuroRate();
@@ -19,12 +13,12 @@ namespace ConsoleApp26
 
         private static double GetDollarRate()
         {
-            return 42; // call database
+            return 45; // call database
         }
 
         private static double GetEuroRate()
         {
-            return 45; // call database
+            return 50; // call database
         }
 
         public static double DallarRate 
