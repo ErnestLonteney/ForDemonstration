@@ -1,0 +1,61 @@
+﻿@model List<ContactViewModel>
+
+<div class="container my-5">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h1 class="display-5">Contacts</h1>
+        </div>
+        <div class="col-md-4 text-end">
+            <a href="#" class="btn btn-primary">+ Add Contact</a>
+        </div>
+    </div>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Account</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <span class="text-primary fw-semibold">@item.FirstName</span>
+                            </td>
+                            <td>
+                                <span class="text-primary fw-semibold">@item.LastName</span>
+                            </td>
+                            <td>
+                                @if (item.Account != null)
+                                {
+                                    <span class="badge bg-info">@item.Account.Name</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">N/A</span>
+                                }
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Edit</a>
+                                <a href="#" class="btn btn-sm btn-outline-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            <strong>No contacts found.</strong> Start by <a href="#" class="alert-link">adding a new contact</a>.
+        </div>
+    }
+</div>

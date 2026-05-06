@@ -4,7 +4,7 @@
     {
         public double Radius { get; set; }
 
-        public override double GetSqure()
+        public override double GetSquare()
         {
             return Math.Sqrt(Radius) / 2;   
         }

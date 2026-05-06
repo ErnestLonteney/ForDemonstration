@@ -22,12 +22,7 @@
             
             Dog dog1 = new Dog("Jack");
 
-            barsic.IntroduseMyselfe();
-            dog1.IntroduseMyselfe();
 
-            Console.WriteLine(dog1.Name);
-
-            barsic.MakeVoice();
 
            // djack.MakeVoice();
             Animal[] animals = { new Dog("Vasyl"), new Cat("Frosia"), 
@@ -41,6 +36,8 @@
                         animals[i].MakeVoice();
                     }
             }
+
+            Introduce(animals);
         }
         public void Introduce2(Animal[] animals)
         {

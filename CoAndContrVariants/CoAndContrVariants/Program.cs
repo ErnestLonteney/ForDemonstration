@@ -14,24 +14,24 @@
         }
 
         static void Main()
-        {         
+        {
             Cat cat = new Cat("Lapyk");
             Animal animal = cat;
             IVoice cat2 = new Cat("Bisquit");
 
             GetInfo(cat);
             GetInfo(animal);
-          //  GetInfo(cat2);
+            //  GetInfo(cat2);
 
             Cat[] cats = [cat, (Cat)cat2, new Cat("Sapfir")];
-           
+
             // co-variants of arrays 
             Animal[] animals = cats;
 
-            // co-variants of delegates
+            // co-variants of generic type
             CatFilter<Animal> filter = new CatFilter<Cat>(GetAnimal);
             Animal animal3 = filter.Invoke();
-            
+
             // contrvariants of delegate
             CatFinder<Cat> finder = new CatFinder<Animal>(GetInfo);
             finder.Invoke(cat);

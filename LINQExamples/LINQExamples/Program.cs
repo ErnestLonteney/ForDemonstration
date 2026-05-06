@@ -53,7 +53,7 @@
             var emailAndPhoneExist = emploees
                                       .Where(em => em.Phone is not null && em.Email is not null)
                                       .OrderBy(em => em.LastName)
-                                      .OrderBy(em => em.FirstName);
+                                      .ThenBy(em => em.FirstName);
 
             
 
@@ -104,7 +104,7 @@
 
             var anonymus = emploees
                            .OrderBy(emp => emp.LastName)
-                           .OrderBy(emp => emp.FirstName)
+                           .ThenBy(emp => emp.FirstName)
                            .Select(emp => new { Name = emp.FirstName + " " + emp.LastName, emp.Title });
 
             foreach (var item in anonymus)

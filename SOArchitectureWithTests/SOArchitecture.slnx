@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/Services.UnitTests.csproj" />
+  </Folder>
+  <Project Path="DataAccess/DataAccess.csproj" />
+  <Project Path="Services/Services.csproj" Id="d7184153-f6af-47cd-912a-925c8bba4b9c" />
+  <Project Path="SOArchitecture/SOArchitecture.csproj" />
+</Solution>

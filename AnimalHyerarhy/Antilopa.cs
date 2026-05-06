@@ -12,6 +12,11 @@ namespace AnimalHyerarhy
              Console.WriteLine($"{Name} is herding");
         }
 
+        public override void Hunt()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void MakeVoice()
         {
             Console.WriteLine("IGOGO");

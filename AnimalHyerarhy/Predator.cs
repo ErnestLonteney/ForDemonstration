@@ -6,7 +6,7 @@ namespace AnimalHyerarhy
             : base(name)
         {
         }
-        public abstract void Hunt();
+      //  public abstract void Hunt();
         public Herbivore [] Victims;
 }
 }

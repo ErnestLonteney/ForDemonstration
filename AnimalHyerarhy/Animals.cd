@@ -8,7 +8,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AnimalHyerarhy.Antilopa" Collapsed="true">
-    <Position X="8.75" Y="5.25" Width="1.5" />
+    <Position X="8.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Antilopa.cs</FileName>
@@ -43,7 +43,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AnimalHyerarhy.Herbivore" Collapsed="true">
-    <Position X="8.75" Y="3.75" Width="1.5" />
+    <Position X="8.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Herbivore.cs</FileName>
@@ -64,7 +64,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AnimalHyerarhy.Tiger" Collapsed="true">
-    <Position X="6.5" Y="3.75" Width="1.5" />
+    <Position X="6.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Tiger.cs</FileName>

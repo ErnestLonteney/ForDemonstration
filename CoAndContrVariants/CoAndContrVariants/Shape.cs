@@ -8,6 +8,6 @@ namespace CoAndContrVariants
 {
     abstract class Shape
     {
-        public abstract double GetSqure();
+        public abstract double GetSquare();
     }
 }
