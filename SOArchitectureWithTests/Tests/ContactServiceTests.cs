@@ -4,7 +4,7 @@ using Services;
 using Services.DtoModels;
 using Tests.Fixtures;
 
-namespace Tests.Services
+namespace Services.UnitTests
 {
     [TestFixture]
     public class ContactServiceTests : TestFixtureBase
