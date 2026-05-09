@@ -55,7 +55,7 @@
                                       .OrderBy(em => em.LastName)
                                       .ThenBy(em => em.FirstName);
 
-            
+
 
             int howManyHavePhone = emploees.Count(e => e.Phone is not null);
             Console.WriteLine($"How many emploies have phone {howManyHavePhone}");
@@ -65,7 +65,7 @@
             if (dick is not null)
             {
                 Console.WriteLine(dick.Phone);
-                Console.WriteLine(dick.Email);               
+                Console.WriteLine(dick.Email);
             }
 
 
@@ -79,11 +79,11 @@
             Console.WriteLine($"Avarage salary {avaregeSalary}");
             Console.WriteLine($"Sum of all salaries {sum}");
 
-            var grops = emploees.GroupBy(e => e.Title);
+            var groups = emploees.GroupBy(e => e.Title);
 
             Console.WriteLine(new string('-', 40));
 
-            foreach (var group in grops)
+            foreach (var group in groups)
             {
                 Console.WriteLine(group.Key);
                 Console.WriteLine(new string('-', 10));
@@ -97,7 +97,7 @@
 
             Console.WriteLine(new string('-', 40));
 
-            var titles = emploees.Select(e => e.Title).Distinct().OrderBy(t => t).ToList();
+            List<string> titles = emploees.Select(e => e.Title).Distinct().OrderBy(t => t).ToList();
             titles.ForEach(Console.WriteLine);
 
             Console.WriteLine(new string('-', 40));
@@ -112,7 +112,7 @@
                 Console.WriteLine($"{item.Name} - {item.Title}");
             }
 
-            var dic = emploees
+            Dictionary<string, int> dic = emploees
                      .GroupBy(e => e.Title)
                      .OrderBy(g => g.Key)
                      .ToDictionary(k => k.Key, v => v.Count());
