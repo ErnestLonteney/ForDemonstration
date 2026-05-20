@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../CatMaker/CatMaker.csproj" />
+  <Project Path="PrototypeExample.csproj" />
+</Solution>
