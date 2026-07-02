@@ -1,4 +1,6 @@
-﻿namespace LINQExamples
+﻿using System.Linq;
+
+namespace LINQExamples
 {
     internal class Program
     {
@@ -6,7 +8,7 @@
         {
             var emploees = new List<Employee>
             {
-                new ()
+                new Employee()
                 {
                     Id = 1,
                     FirstName = "Leo",
@@ -15,7 +17,7 @@
                     Title = "Software Developer",
                     Email = "leo@mail.com"
                 },
-                new ()
+                new Employee()
                 {
                     Id = 2,
                     FirstName = "Mary",
@@ -25,7 +27,7 @@
                     Email = "mary@mail.com",
                     Phone = "+375434535"
                 },
-                new ()
+                new Employee()
                 {
                     Id = 3,
                     FirstName = "Kyle",
@@ -35,7 +37,7 @@
                     Phone = "+373343434",
                     Email = "kyle@mail.com"
                 },
-                new ()
+                new Employee()
                 {
                     Id = 4,
                     FirstName = "Dick",
@@ -47,14 +49,29 @@
             };
 
             var bigSallaryEmploees = emploees
-                                      .Where(em => em.Salary > 10000)
+                                      .Where(em => em.Salary > 50000)
                                       .OrderBy(em => em.Salary);
+
+
+            //foreach (var employee in bigSallaryEmploees)
+            //{
+            //    Console.WriteLine($"{employee.FirstName} {employee.LastName} - {employee.Salary}");
+            //}
 
             var emailAndPhoneExist = emploees
                                       .Where(em => em.Phone is not null && em.Email is not null)
                                       .OrderBy(em => em.LastName)
                                       .ThenBy(em => em.FirstName);
 
+            foreach (var employee in emailAndPhoneExist)
+            {
+                Console.WriteLine($"{employee.FirstName} {employee.LastName} - {employee.Salary}");
+            }
+
+
+            var newQuery = emploees.Where(em => em.Title == "Software Engeneer")
+                                   .OrderBy(em => em.FirstName)
+                                   .Select(em => new { FullName = em.FirstName + " " + em.LastName, em.Salary });
 
 
             int howManyHavePhone = emploees.Count(e => e.Phone is not null);
@@ -95,22 +112,15 @@
                 Console.WriteLine();
             }
 
+            var groppedEmployees = from employee in emploees
+                                   group employee by employee.Title;
+
             Console.WriteLine(new string('-', 40));
 
             List<string> titles = emploees.Select(e => e.Title).Distinct().OrderBy(t => t).ToList();
             titles.ForEach(Console.WriteLine);
 
             Console.WriteLine(new string('-', 40));
-
-            var anonymus = emploees
-                           .OrderBy(emp => emp.LastName)
-                           .ThenBy(emp => emp.FirstName)
-                           .Select(emp => new { Name = emp.FirstName + " " + emp.LastName, emp.Title });
-
-            foreach (var item in anonymus)
-            {
-                Console.WriteLine($"{item.Name} - {item.Title}");
-            }
 
             Dictionary<string, int> dic = emploees
                      .GroupBy(e => e.Title)
@@ -141,6 +151,20 @@
             if (notValidMails.Any())
             {
                 Console.WriteLine("We have some not valid mails");
+            }
+
+            var topTwoEmployees = emploees.Take(2).ToList();
+
+            foreach (var employee in topTwoEmployees)
+            {
+                Console.WriteLine($"{employee.FirstName} {employee.LastName}");
+            }
+
+            var twoAfterOneEmployees = emploees.Skip(1).Take(2);
+
+            foreach (var employee in twoAfterOneEmployees)
+            {
+                Console.WriteLine($"{employee.FirstName} {employee.LastName}");
             }
         }
     }
