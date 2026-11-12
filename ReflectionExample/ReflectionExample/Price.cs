@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace ReflectionExample
 {
-    struct Price
+    class Price
     {
         public decimal RawPrice { get; set; }
         public decimal LandedPrice { get; set; }
-        public decimal DeliveryPrice { get; set; }
-        public decimal StorePrice { get; set; }
+        public decimal StoragePrice { get; set; }
     }
 }

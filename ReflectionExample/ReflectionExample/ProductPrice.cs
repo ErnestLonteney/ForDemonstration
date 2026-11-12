@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace ReflectionExample
 {
-    struct ProductPrice
+    class ProductPrice : Price
     {
         public decimal PriceWithDiscount { get; set; }
-        public decimal PriceInMainStore { get; set; }
-        public decimal StoragePrice { get; set; }
+        public decimal PriceWithLoyality { get; set; }
+        public decimal NettoPrice { get; set; }
+
+        public decimal PriceWithTax { get; set; }
     }
 }
