@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../C#ObserverModel/C#ObserverModel.csproj" />
+  <Project Path="../IObserver/IObserver.csproj" />
+  <Project Path="ObserverExample.csproj" />
+</Solution>
